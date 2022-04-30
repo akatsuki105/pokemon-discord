@@ -1,0 +1,26 @@
+// 読んでおくと良い: https://gist.github.com/azu/56a0411d69e2fc333d545bfe57933d07
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "es2020", // target は 変換後のコードのECMAScriptバージョンを指定する たとえば、Node.js 14はES2020をサポートしている。そのため、Node.js 14向けのコード(サーバなど)ならtarget: "ES2020"を指定することで、余計なTranspileが省かれててコードサイズや実行時間が最適化される。
+    "lib": ["dom", "dom.iterable", "esnext"], // TypeScriptを記述する際に利用できる機能を列挙する項目です。targetより上位のES editionの機能を利用したい場合、そのES editionを設定します。また、そのほかに利用したい機能があれば列挙して指定します。ブラウザで動かすスクリプトであるならDOMの型定義も必要になるためここで指定します。
+    "allowJs": true,
+    "declaration": true, // コンパイル時に型定義ファイルを出す
+    "skipLibCheck": true, // mochaとjestの型が衝突してコンパイルエラーが起きるのを避けたりするときに使えるオプション。 ライブラリの型の不一致を無視するためのオプションなので、個人的にはオフで困らないならオフの方が健全にみえる。
+    "esModuleInterop": true, // Reference: https://numb86-tech.hatenablog.com/entry/2020/07/11/160159
+    "strict": true,
+    "forceConsistentCasingInFileNames": true, // macOSでファイル名が大文字小文字の違いを無視してimportに成功するけど、他のOSでは失敗する現象をコンパイラのレベルで阻止する。ONにしておくのが無難
+    "module": "esnext", // moduleは、モジュールをCommonJS, ES Module形式で出力するかなどモジュールの構文のみについてのオプションなので、他のECMAScript構文とは関係ない。webpackやRollupなどの中でTypeScriptを扱っているなら、module: "ESNext" にしておくことでTree Shakingなどの最適化ができるという仕組み。
+    "moduleResolution": "node",
+    "resolveJsonModule": true, // JSONファイルのimportを可能にする
+    "isolatedModules": true, // コンパイル対象のファイル間の関係性を一切無視して、全てのファイルを単一のモジュールとしてコンパイルする。 BabelやDenoとの相互運用性があがる ref: https://ryokkkke.com/typescript/tsconfig-json/compiler-options/isolated-modules
+    "noEmit": true, // 型チェックのみを行う
+    "jsx": "preserve",
+    "downlevelIteration": true,
+    "noFallthroughCasesInSwitch": false,
+    "typeRoots": ["types/**/*.d.ts", "./node_modules/@types"],
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
