@@ -13,7 +13,7 @@
     "module": "esnext", // moduleは、モジュールをCommonJS, ES Module形式で出力するかなどモジュールの構文のみについてのオプションなので、他のECMAScript構文とは関係ない。webpackやRollupなどの中でTypeScriptを扱っているなら、module: "ESNext" にしておくことでTree Shakingなどの最適化ができるという仕組み。
     "moduleResolution": "node",
     "resolveJsonModule": true, // JSONファイルのimportを可能にする
-    "isolatedModules": true, // コンパイル対象のファイル間の関係性を一切無視して、全てのファイルを単一のモジュールとしてコンパイルする。 BabelやDenoとの相互運用性があがる ref: https://ryokkkke.com/typescript/tsconfig-json/compiler-options/isolated-modules
+    "isolatedModules": false, // コンパイル対象のファイル間の関係性を一切無視して、全てのファイルを単一のモジュールとしてコンパイルする。 BabelやDenoとの相互運用性があがる ref: https://ryokkkke.com/typescript/tsconfig-json/compiler-options/isolated-modules
     "noEmit": true, // 型チェックのみを行う
     "jsx": "preserve",
     "downlevelIteration": true,

@@ -1,7 +1,38 @@
-# ts-starter
+# pokemon-discord
 
-## `eslint-plugin-prettier`
+```
+Note: このDiscordアプリは現在作成途中です。
+```
 
-> eslint-plugin-prettier: Prettier と競合する可能性のある ESLint の各種ルールを無効にする共有設定
+Discord上でポケモンをプレイしよう！
 
-`eslint-plugin-prettier`は現在(2022/4/21)、非推奨なので削除しています。詳しくは[こちら](https://knote.dev/post/2020-08-29/duprecated-eslint-plugin-prettier/)
+<img src="images/demo.png" width="480" />
+
+## Features
+
+- スタンプでポケモンをプレイ可能
+
+**TODOs**
+
+- モノクロゲームボーイの場合、画面を緑っぽくする
+- 画面サイズを2倍に
+- 最新の画面に対するスタンプのみを有効に
+- `/stats`,`/townmap`コマンドの実装
+- コードをもうちょっと綺麗に
+
+## Usage
+
+`.env`ファイルを作成して次のように必要な情報を入力してください。
+
+```sh
+TOKEN = DISCORD_ACCESS_TOKEN
+CLIENT_ID = DISCORD_APP_ID
+GUILD_ID = DISCORD_GUILD_ID
+CHANNEL_ID = DISCORD_CHANNEL_ID
+OMEGA_PATH = game/omega # Windowsの場合は game/omega.exe
+ROM_PATH = game/pokecrystal.gbc
+```
+
+```sh
+$ yarn dev
+```
